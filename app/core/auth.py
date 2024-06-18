@@ -21,15 +21,19 @@ def get_hash_password(plain_password:str) -> str:
 def verify_creditials(username : str , password:str , session : Session) -> bool:
     statment = select(Users).where(username == Users.username)
     result = session.exec(statment).first()
-    is_email = verify_username(username=username , db_username=result.username) # type: ignore
-    if is_email:
-        is_password = verify_password(plain_password=password , hash_password=result.password) # type: ignore
+    if result:
+     is_email = verify_username(username=username , db_username=result.username)
+     if is_email:
+        is_password = verify_password(plain_password=password , hash_password=result.password)
         return is_password
-    else:
+     else:
         return is_email
+    else:
+       return False
     
 
 def get_username(username:str , session:Session):
     statment = select(Users).where(username == Users.username)
     result = session.exec(statment).first()
     return True if result else False
+

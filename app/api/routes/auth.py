@@ -31,4 +31,4 @@ async def register_route(formdata:FORMDEP , session:DBSESSION):
         session.refresh(data)
         return data
     else:
-        raise HTTPException(status_code=404 , detail="Username already usernaem")
+        raise HTTPException(status_code=404 , detail="Username already Exist")
