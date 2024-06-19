@@ -21,3 +21,8 @@ class Token:
         self.token_type = "bearer"
         self.expires_in = expires_in
         self.refresh_token = refresh_token
+
+
+class ReviewResult(SQLModel):
+    discrepancies: dict
+    missing_information: dict

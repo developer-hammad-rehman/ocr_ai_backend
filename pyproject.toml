@@ -17,6 +17,8 @@ passlib = {extras = ["bcrypt"], version = "^1.7.4"}
 pypdf2 = {extras = ["crypto"], version = "^3.0.1"}
 pandas = "^2.2.2"
 pymupdf = "^1.24.5"
+httpx = "^0.27.0"
+pytest = "^8.2.2"
 
 
 [build-system]

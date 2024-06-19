@@ -5,6 +5,7 @@ from app.crud import create_table
 from fastapi.middleware.cors import CORSMiddleware
 
 
+#=====================================================================#
 
 @asynccontextmanager
 async def lifespan(app:FastAPI):
@@ -12,7 +13,12 @@ async def lifespan(app:FastAPI):
     create_table()
     yield
 
+#========================================================================#
+
+
 app = FastAPI(title="OCR_AI" ,lifespan=lifespan)
+
+#========================================================================#
 
 app.add_middleware(
     CORSMiddleware,
@@ -22,8 +28,14 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+#========================================================================#
+
 @app.get('/' , tags=["Root Route"])
 def root_route():
     return {"message" : "Welcome to ocr app server"}
 
+#==========================================================================#
+
 app.include_router(api.router)
+
+#===========================================================================#
